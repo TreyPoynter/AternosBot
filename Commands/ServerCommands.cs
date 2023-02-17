@@ -21,7 +21,7 @@ namespace AternosBot.Commands
             await ctx.Message.RespondAsync("Server Starting...");
             Thread.Sleep(6000);
             await ctx.Message.RespondAsync($"Server Started on {DateTime.Now.ToString("M")} - " +
-                $"{DateTime.Now.ToString("t")} {ctx.Member.Mention}");
+                                           $"{DateTime.Now.ToString("t")} {ctx.Member.Mention}");
         }
     }
 }
