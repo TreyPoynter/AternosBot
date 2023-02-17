@@ -1,5 +1,8 @@
-﻿using DSharpPlus;
+﻿using AternosBot.Commands;
+using DSharpPlus;
 using DSharpPlus.CommandsNext;
+using DSharpPlus.Interactivity;
+using DSharpPlus.Interactivity.Extensions;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -13,6 +16,7 @@ namespace AternosBot
     {
         public DiscordClient Client { get; private set; }
         public CommandsNextExtension Commands { get; private set; }
+        public InteractivityExtension Interactivity { get; set; }
 
         public async Task RunAsync()
         {
@@ -39,8 +43,15 @@ namespace AternosBot
 
             Client = new DiscordClient(config);
             Client.Ready += Client_Ready;
-
+            Client.UseInteractivity(new InteractivityConfiguration
+            {
+                Timeout = TimeSpan.FromSeconds(10)
+            });
             Commands = Client.UseCommandsNext(commConfig);
+
+            // Currently Registered Commands
+            Commands.RegisterCommands<ServerCommands>();
+
             await Client.ConnectAsync(); // connect the bot
             await Task.Delay(-1);
         }
