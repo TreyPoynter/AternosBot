@@ -1,4 +1,6 @@
-﻿namespace AternosBot
+﻿using Python.Runtime;
+using Python.Runtime.Codecs;
+namespace AternosBot
 {
     internal class Program
     {
