@@ -22,9 +22,9 @@ namespace AternosBot.Commands
             string unixTime = dto.ToUnixTimeSeconds().ToString();
 
             await ctx.Message.RespondAsync("Server Starting...");
-            Thread.Sleep(6000);
-            await ctx.Message.RespondAsync($"Server Started on {DateTime.Now.ToString("M")} - " +
-                                           $"<t:{unixTime}:t> {ctx.Member.Mention}");
+            //Thread.Sleep(6000);
+            //await ctx.Message.RespondAsync($"Server Started on {DateTime.Now.ToString("M")} - " +
+            //                               $"<t:{unixTime}:t> {ctx.Member.Mention}");
         }
     }
 }
