@@ -3,7 +3,6 @@ using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.Interactivity;
 using DSharpPlus.Interactivity.Extensions;
-using Python.Runtime;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
