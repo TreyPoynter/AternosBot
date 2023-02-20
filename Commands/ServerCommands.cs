@@ -22,14 +22,11 @@ namespace AternosBot.Commands
             DateTimeOffset dto = new DateTimeOffset(DateTime.UtcNow);
             string unixTime = dto.ToUnixTimeSeconds().ToString();
             ProcessStartInfo startInfo = new ProcessStartInfo();
-            string script = @"CallAPI.py";
             bool serverIsUp = false;
 
             await ctx.Message.RespondAsync("Server Starting...");
-            //Thread.Sleep(6000);
-            //await ctx.Message.RespondAsync($"Server Started on {DateTime.Now.ToString("M")} - " +
-            //                               $"<t:{unixTime}:t> {ctx.Member.Mention}");
-            startInfo.FileName = @"C:\Users\doodl\AppData\Local\Programs\Python\Python311\python.exe";
+            startInfo.FileName = @""; // path to python.exe
+            startInfo.Arguments = "CallAPI.py";
             startInfo.UseShellExecute = false;
             startInfo.CreateNoWindow = true;
             startInfo.RedirectStandardOutput = true;
@@ -40,6 +37,11 @@ namespace AternosBot.Commands
             {
                 errors = process.StandardError.ReadToEnd();
                 serverIsUp = Convert.ToBoolean(process.StandardOutput.ReadToEnd().ToLower());
+            }
+
+            if (errors != String.Empty)
+            {
+                await ctx.Message.RespondAsync($"{errors}");
             }
 
             if (serverIsUp)

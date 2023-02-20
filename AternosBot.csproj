@@ -34,6 +34,7 @@
     <None Include="bin\Debug\net6.0\API\python-aternos-2.1.3\README.md" />
     <None Include="bin\Debug\net6.0\API\python-aternos-2.1.3\setup.cfg" />
     <None Include="bin\Debug\net6.0\API\python-aternos-2.1.3\setup.py" />
+    <None Include="bin\Debug\net6.0\CallAPI.py" />
     <None Include="bin\Debug\net6.0\config.json" />
   </ItemGroup>
 
